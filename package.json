@@ -1,0 +1,8 @@
+{
+    "name": "countdown-clock",
+    "description": "A web application that has simple countdown functionalities",
+    "version": "1.0.0",
+    "engines": {
+      "node": "10.2.1"
+    }
+  }
