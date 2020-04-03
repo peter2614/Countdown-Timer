@@ -4,5 +4,11 @@
     "version": "1.0.0",
     "engines": {
       "node": "10.2.1"
+    },
+    "scripts": {
+        "start": "harp server --port $PORT"
+    },
+    "dependencies": {
+        "harp": "*"
     }
   }
