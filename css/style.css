@@ -37,7 +37,7 @@ body {
 #custom input {
   flex: 1;
   border: 0;
-  padding: 2rem;
+  padding: 1rem;
   background-color: lightgray;
   border-bottom: 3px solid rgba(48, 47, 47, 0.808);
 }
