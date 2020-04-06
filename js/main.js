@@ -3,7 +3,6 @@ const timerDisplay = document.querySelector('.time-left');
 const endTime = document.querySelector('.end-time');
 const buttons = document.querySelectorAll('[data-time]');
 const player = document.getElementById('player');
-const btns = document.getElementById('btns');
 const pause = document.getElementsByClassName('pause')[0];
 const stop = document.getElementsByClassName('stop')[0];
 const displayTime = document.getElementsByClassName('display')[0];
@@ -12,7 +11,8 @@ let seconds_left;
 
 function timer(seconds) {
     displayTime.style.display = 'flex';
-    btns.style.display = 'flex';
+    pause.innerHTML = "Pause";
+    pause.hidden = false;
     seconds_left = seconds;
     
     clearInterval(countdown);  // clear any existing timers
@@ -28,6 +28,7 @@ function timer(seconds) {
 
         // check if we need to stop
         if(secondsLeft < 0) {
+            pause.innerHTML = "STOP";
             clearInterval(countdown);
             randomSound();
             return;
@@ -59,7 +60,7 @@ function startTimer() {
 }
 
 function randomSound(){
-    var rand = [
+    let rand = [
         'sound/alarm1.mp3',
         'sound/alarm2.mp3',
         'sound/alarm3.mp3',
@@ -80,20 +81,18 @@ function randomSound(){
         'sound/alarm18.mp3',
         'sound/alarm19.mp3',
         'sound/alarm20.mp3',
-        'sound/alarm21.mp3',
-        'sound/alarm22.mp3',
-        'sound/alarm23.mp3'
+        'sound/alarm21.mp3'
     ];
 
-    var randSound = rand[Math.floor(Math.random() * rand.length)];
+    let randSound = rand[Math.floor(Math.random() * rand.length)];
     
-    // var player=document.getElementById('player');
-    var source=document.getElementById('source');
+    let source = document.getElementById('source');
 
     source.src = randSound;
     
    player.load();
    player.play();
+   player.loop = true;
 }
 
 function resetAlarm() {
@@ -113,20 +112,30 @@ document.customForm.addEventListener('submit', function(e) {
 // Pause/Resume timer when pause is clicked
 pause.addEventListener('click', () => {
     isPaused = !isPaused;
-    if(isPaused) {
-        pause.innerHTML = 'Resume';
-        clearInterval(countdown);
+    if(pause.innerHTML === 'STOP') {
+        displayTime.style.display = 'none';
+        pause.hidden = true;
+
+        resetAlarm();
+        clearInterval(countdown);  // clear any existing timers
+        document.title = 'Countdown Timer';
     }
     else {
-        pause.innerHTML = 'Pause';
-        timer(seconds_left);
+        if(isPaused) {
+            pause.innerHTML = 'Resume';
+            clearInterval(countdown);
+        }
+        else {
+            pause.innerHTML = 'Pause';
+            timer(seconds_left);
+        }
     }
 });
 
-stop.addEventListener('click', () => {
-    displayTime.style.display = 'none';
-    resetAlarm();
-    clearInterval(countdown);  // clear any existing timers
-    document.title = 'Countdown Timer';
-});
+// stop.addEventListener('click', () => {
+//     displayTime.style.display = 'none';
+//     resetAlarm();
+//     clearInterval(countdown);  // clear any existing timers
+//     document.title = 'Countdown Timer';
+// });
 
