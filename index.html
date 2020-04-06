@@ -2,30 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Countdown Clock</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Countdown Timer">
+    <meta name="author" content="Peter Pi">
+    <title>Countdown Timer</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="icon/favicon.png">
 </head>
 <body>
     <div class="timer">
         <div class="controls">
             <button data-time="20" class="button">20 Secs</button>
-            <button data-time="300" class="button">Work 5</button>
+            <button data-time="300" class="button">Break 5</button>
             <button data-time="900" class="button">Quick 15</button>
-            <button data-time="1200" class="button">Snack 20</button>
+            <button data-time="1200" class="button">Work 25</button>
             <button data-time="3600" class="button">Lunch Break</button>
             <form name="customForm" id="custom">
-                <input type="text" name="minutes" placeholder="Enter Minutes">
+                <input type="number" name="minutes" placeholder="Enter Minutes">
             </form>
         </div>
     
         <div class="display">
             <h1 class="time-left"></h1>
             <p class="end-time"></p>
+            <div id="btns" style="display: none;">
+                <span><button type="button" class="pause">Pause</button></span>
+                <span><button type="button" class="stop">Stop</button></span>
+            </div>
         </div>
     </div>
 
+    <audio id="player">
+        <source id="source" src="" type="audio/mp3">
+    </audio>
     <script src="js/main.js"></script>
-    <audio id='alarm' src="sound/alarm.mp3" preload="auto"></audio>
 </body>
 </html>
