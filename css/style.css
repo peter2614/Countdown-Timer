@@ -52,7 +52,7 @@ input,
     border: 0;
     cursor: pointer;
     color: white;
-    font-size: 2rem;
+    font-size: 20px;
     text-transform: uppercase;
     background: rgba(0,0,0,0.1);
     border-bottom: 3px solid rgba(0,0,0,0.2);
@@ -80,13 +80,13 @@ input,
 
 .time-left {
     font-weight: 100;
-    font-size: 20rem;
+    font-size: 23vh;
     margin: 0;
     text-shadow: 4px 4px 0 rgba(0,0,0,0.05);
 }
 
 .end-time {
-    font-size: 4rem;
+    font-size: 5vh;
 }
 
 #btn {
@@ -95,17 +95,17 @@ input,
 
 .pause {
     border: 0;
-    width: 150px;
+    width: fit-content;
     border-radius:8px;
     cursor: pointer;
     color: white;
-    font-size: 2.2rem;
+    font-size: 2.8vh;
     font-weight: bold;
     text-transform: uppercase;
     background: rgba(30, 30, 30, 0.7);
     border-bottom: 3px solid rgba(0,0,0,0.2);
     border-right: 1px solid rgba(0,0,0,0.2);
-    padding: 1.5rem;
+    padding: 2vh 2vw;
     font-family: 'Roboto Mono', monospace;
 }
 .pause:hover {

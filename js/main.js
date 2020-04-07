@@ -115,7 +115,6 @@ pause.addEventListener('click', () => {
     if(pause.innerHTML === 'STOP') {
         displayTime.style.display = 'none';
         pause.hidden = true;
-
         resetAlarm();
         clearInterval(countdown);  // clear any existing timers
         document.title = 'Countdown Timer';
